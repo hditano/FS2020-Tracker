@@ -15,6 +15,7 @@ class SimFs2020():
         self.speed = self.SimSpeed()
         self.title = self.SimTitle()
         self.latlon = self.SimLatLon()
+        print('Data Updated')
    
     def SimAltitude(self):
         altitude = self.aq.get("PLANE_ALTITUDE")

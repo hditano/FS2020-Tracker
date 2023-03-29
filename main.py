@@ -1,22 +1,33 @@
 from simfs2020 import *
 import maprender as map
-import time
-import traceback
-
-oPlane = SimFs2020()
-
-def every(delay, task):
-    next_time = time.time() + delay
-    while True:
-        time.sleep(max(0, next_time - time.time()))
-        try:
-            oPlane.SimRender()
-            map.Marker(oPlane.SimLatLon())
-        except Exception:
-            traceback.print_exc()
-        next_time += (time.time() - next_time) // delay * delay + delay
+from nicegui import ui
 
 
-if __name__ == '__main__':
-    print('Starting Data...')
-    every(5, oPlane.SimRender())
+@ui.page('/')
+def main():
+    oPlane = SimFs2020()
+    oPlane.SimRender()
+    with ui.header().classes('bg-slate-500'):
+        ui.label('Fs2020 Tracker').classes('w-full text-center')
+        ui.button('Update Data', on_click=lambda: oPlane.SimRender())
+    with ui.column():
+        with ui.row():
+            ui.label('Altitude: ').style('color: #888; font-weight: bold')
+            ui.label().bind_text_from(oPlane, 'altitude')
+        with ui.row():
+            ui.label('Speed: ').style('color: #888; font-weight: bold')
+            ui.label().bind_text_from(oPlane, 'speed')
+        with ui.row():
+            ui.label('Longitude: ').style('color: #888; font-weight: bold')
+            ui.label().bind_text_from(oPlane, 'latlon')
+        ui.label('Latitude: ').style('color: #888; font-weight: bold')
+    
+        ui.link('NiceGUI on Github', 'https://github.com/zauberzeug/nicegui')
+
+    ui.add_body_html('<style>body{background-color: #dddddd}</style>')
+    
+
+
+ui.run(show=False, native=True)
+
+

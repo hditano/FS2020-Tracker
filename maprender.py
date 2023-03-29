@@ -3,7 +3,7 @@ import os
 
 
 my_array = []
-os.remove('my_map4.html')
+#os.remove('my_map4.html')
 
 def Marker(latlon):
     
