@@ -10,6 +10,7 @@ def main():
     with ui.header().classes('bg-slate-500'):
         ui.label('Fs2020 Tracker').classes('w-full text-center')
         ui.button('Update Data', on_click=lambda: oPlane.SimRender())
+        ui.button('Update Map', on_click=lambda: map.Marker(oPlane.SimLatLon()))
     with ui.column():
         with ui.row():
             ui.label('Altitude: ').style('color: #888; font-weight: bold')
