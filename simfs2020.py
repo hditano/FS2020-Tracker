@@ -9,6 +9,8 @@ class SimFs2020():
         self.speed = 0
         self.title = ''
         self.latlon = []
+        self.lat = ''
+        self.lon = ''
         
     def updateData(self):
         self.altitude = self.SimAltitude()
@@ -33,6 +35,7 @@ class SimFs2020():
         lat = self.aq.get("PLANE_LATITUDE")
         lon = self.aq.get("PLANE_LONGITUDE")
         latlon = [lat, lon]
+        self.lat, self.lon = latlon
         return latlon
 
     def SimRender(self):

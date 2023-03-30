@@ -19,8 +19,10 @@ def main():
             ui.label().bind_text_from(oPlane, 'speed')
         with ui.row():
             ui.label('Longitude: ').style('color: #888; font-weight: bold')
-            ui.label().bind_text_from(oPlane, 'latlon')
-        ui.label('Latitude: ').style('color: #888; font-weight: bold')
+            ui.label().bind_text_from(oPlane, 'lon')
+        with ui.row():
+            ui.label('Latitude: ').style('color: #888; font-weight: bold')
+            ui.label().bind_text_from(oPlane, 'lat')
     
         ui.link('NiceGUI on Github', 'https://github.com/zauberzeug/nicegui')
 
