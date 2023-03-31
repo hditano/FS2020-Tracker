@@ -1,4 +1,5 @@
 from SimConnect import *
+from datetime import datetime
 import math
 
 class SimFs2020():
@@ -11,13 +12,20 @@ class SimFs2020():
         self.latlon = []
         self.lat = ''
         self.lon = ''
+        self.date = ''
         
     def updateData(self):
         self.altitude = self.SimAltitude()
         self.speed = self.SimSpeed()
         self.title = self.SimTitle()
         self.latlon = self.SimLatLon()
+        self.date = self.SimTimestamp()
         print('Data Updated')
+        
+    def SimTimestamp(self):
+       now = datetime.now()
+       time = now.strftime("%H:%M:%S")
+       return time
    
     def SimAltitude(self):
         altitude = self.aq.get("PLANE_ALTITUDE")
@@ -44,4 +52,5 @@ class SimFs2020():
         print(self.title)
         print(self.speed)
         print(self.latlon)
+        print(self.date)
         
