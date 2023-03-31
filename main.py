@@ -2,7 +2,7 @@ from simfs2020 import *
 import maprender as map
 from nicegui import ui
 
-
+#ui
 @ui.page('/')
 def main():
     oPlane = SimFs2020()
