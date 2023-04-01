@@ -21,4 +21,6 @@ def Marker(latlon):
     folium.PolyLine(my_array, color='red', line_opacity = 0.5).add_to(my_map4)
 
     my_map4.save("my_map4.html")
+    
+    return my_map4
 
