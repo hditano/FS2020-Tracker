@@ -48,9 +48,9 @@ class SimFs2020():
 
     def SimRender(self):
         self.updateData()
-        print(self.altitude)
-        print(self.title)
-        print(self.speed)
-        print(self.latlon)
-        print(self.date)
+        # print(self.altitude)
+        # print(self.title)
+        # print(self.speed)
+        # print(self.latlon)
+        # print(self.date)
         
