@@ -35,7 +35,6 @@ def main():
         
         
         # Timers to handle simconnect refresh info & Folium refresh info
-        ui.timer(interval=2.0, callback=lambda: container.update())
         ui.timer(interval=10.0, callback=lambda: oPlane.SimRender())
         ui.timer(interval=2.0, callback=lambda: map.Marker(oPlane.SimLatLon()))
         
@@ -58,12 +57,5 @@ def main():
         
     ui.add_body_html('<style>body{background-color: #dddddd}</style>')
 
-# def update_map() -> None:
-#     oPlane = SimFs2020()
-#     map.Marker(oPlane.SimLatLon()).get_root().width = f'{600}px'
-#     map.Marker(oPlane.SimLatLon()).get_root().height= f'{300}px'
-#     iframe = map.Marker(oPlane.SimLatLon()).get_root()._repr_html_()
-#     ui.html(iframe).classes('w-full h-full')
-
-ui.run(show=False, native=True)
+ui.run(show=False, native=True, reload=False)
 
